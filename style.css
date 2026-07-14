@@ -1,0 +1,211 @@
+/* Reset & Base Styles */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --color-dark: #1a1a1a;
+  --color-light: #f4f4f4;
+  --font-title: 'Syne', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  --transition-smooth: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--color-dark);
+  background-color: #eae8e4;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  
+  /* Disable native browser scrolling for scrolljacking */
+  overflow: hidden;
+  height: 100vh;
+  width: 100%;
+  touch-action: none;
+}
+
+/* Slides Container (Absolute Stacked) */
+.slides-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Slides - Absolute overlay stack layout */
+.slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  overflow: hidden;
+  will-change: transform;
+}
+
+.slide-left {
+  width: 50%;
+  height: 100%;
+  background-color: var(--bg-color);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 10% 0 12%;
+  will-change: transform;
+}
+
+.slide-right {
+  width: 50%;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  will-change: transform;
+}
+
+/* Image reveal wrapper */
+.image-reveal-wrapper {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.parallax-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* Slide Text Content */
+.slide-content {
+  max-width: 500px;
+  will-change: transform, opacity;
+}
+
+.category {
+  font-size: 0.95rem;
+  font-weight: 500;
+  font-style: italic;
+  color: rgba(26, 26, 26, 0.6);
+  margin-bottom: 1.2rem;
+  display: block;
+  letter-spacing: 0.05em;
+  text-transform: capitalize;
+}
+
+.slide-content h2 {
+  font-family: var(--font-title);
+  font-size: 2.6rem; /* Reduced from 3.8rem for cleaner look */
+  font-weight: 800;
+  line-height: 1.15;
+  color: var(--color-dark);
+  margin-bottom: 1.2rem;
+  letter-spacing: -0.02em;
+}
+
+.slide-desc {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: rgba(26, 26, 26, 0.65);
+  margin-bottom: 2rem;
+  will-change: transform, opacity;
+}
+
+/* Premium Button styling */
+.btn-learn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  text-decoration: none;
+  color: var(--color-dark);
+  border: 1px solid rgba(26, 26, 26, 0.2);
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  background-color: transparent;
+  transition: var(--transition-smooth);
+  cursor: pointer;
+}
+
+.btn-learn span {
+  position: relative;
+  z-index: 2;
+}
+
+.btn-learn svg {
+  width: 1.1rem;
+  height: 1.1rem;
+  stroke: var(--color-dark);
+  transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+  position: relative;
+  z-index: 2;
+}
+
+.btn-learn:hover {
+  border-color: var(--color-dark);
+  background-color: var(--color-dark);
+  color: var(--color-light);
+}
+
+.btn-learn:hover svg {
+  stroke: var(--color-light);
+  transform: translateX(6px);
+}
+
+/* Responsive Media Queries */
+@media (max-width: 1024px) {
+  .slide-content h2 {
+    font-size: 2.2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .slide {
+    flex-direction: column;
+    position: relative;
+  }
+
+  .slide-left {
+    position: relative;
+    width: 100%;
+    height: 50vh;
+    padding: 3rem 2.5rem 1rem 2.5rem;
+    justify-content: flex-end;
+  }
+
+  .slide-right {
+    position: relative;
+    width: 100%;
+    height: 50vh;
+  }
+
+  .slide-content h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+  }
+
+  .category {
+    margin-bottom: 0.6rem;
+  }
+
+  .slide-desc {
+    font-size: 0.85rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .btn-learn {
+    padding: 0.8rem 1.6rem;
+  }
+}
