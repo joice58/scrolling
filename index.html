@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spacial Design &amp; Architectural Concepts</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Slides Container (Absolute Stacked) -->
+  <div class="slides-container">
+    
+    <!-- Slide 1 -->
+    <section class="slide" data-index="01" style="--bg-color: #eae8e4; z-index: 1;">
+      <div class="slide-left">
+        <div class="slide-content">
+          <span class="category">Spacial Design</span>
+          <h2>Bold concepts for global issues</h2>
+          <p class="slide-desc">We create sustainable architectural frameworks designed to balance human needs with ecological boundaries, resolving complex urban planning challenges.</p>
+          <a href="#" class="btn-learn">
+            <span>Learn more</span>
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+      <div class="slide-right">
+        <div class="image-reveal-wrapper">
+          <img class="parallax-img" src="assets/architectural_park.png" alt="Spacial Design">
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 2 -->
+    <section class="slide" data-index="02" style="--bg-color: #e2e5e2; z-index: 2;">
+      <div class="slide-left">
+        <div class="slide-content">
+          <span class="category">Visualization</span>
+          <h2>Visionary perspective</h2>
+          <p class="slide-desc">Our visualizations translate raw blueprint designs into photorealistic spaces, capturing light, texture, and geometry in precise detail.</p>
+          <a href="#" class="btn-learn">
+            <span>Learn more</span>
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+      <div class="slide-right">
+        <div class="image-reveal-wrapper">
+          <img class="parallax-img" src="assets/modern_yellow_building.png" alt="Visualization">
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 3 -->
+    <section class="slide" data-index="03" style="--bg-color: #dfc2bb; z-index: 3;">
+      <div class="slide-left">
+        <div class="slide-content">
+          <span class="category">Interactive</span>
+          <h2>Transforming Ideas into Reality</h2>
+          <p class="slide-desc">Immerse clients into spatial configurations using real-time VR headsets and active controllers, letting them walk through their future space today.</p>
+          <a href="#" class="btn-learn">
+            <span>Learn more</span>
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+      <div class="slide-right">
+        <div class="image-reveal-wrapper">
+          <img class="parallax-img" src="assets/vr_interaction.png" alt="Interactive">
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- GSAP & Plugins Local -->
+  <script src="gsap.min.js"></script>
+  <script src="ScrollTrigger.min.js"></script>
+  <!-- Lenis Smooth Scroll Local -->
+  <script src="lenis.min.js"></script>
+  <!-- Custom Application Script -->
+  <script src="app.js"></script>
+</body>
+</html>
