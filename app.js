@@ -7,9 +7,9 @@ let isAnimating = false;
 const slides = gsap.utils.toArray('.slide');
 
 // Set initial states for elements
-gsap.set(".slide[data-index='01']", { yPercent: 0, scale: 1, opacity: 1 });
-gsap.set(".slide[data-index='02']", { yPercent: 100, scale: 1, opacity: 1 });
-gsap.set(".slide[data-index='03']", { yPercent: 100, scale: 1, opacity: 1 });
+gsap.set(".slide[data-index='01']", { yPercent: 0 });
+gsap.set(".slide[data-index='02']", { yPercent: 100 });
+gsap.set(".slide[data-index='03']", { yPercent: 100 });
 
 // Categories staggered entrance defaults
 slides.forEach((slide, idx) => {
@@ -43,16 +43,17 @@ const goToSlide = (index) => {
   });
 
   if (direction === "down") {
-    // Current slide moves up slightly, scales down and fades out (3D perspective stack)
-    tl.to(currentSlide, { yPercent: -15, scale: 0.93, opacity: 0.7, duration: 1.2, ease: "power2.inOut" }, 0);
+    // Current slide moves up slowly (pure vertical scroll up)
+    tl.to(currentSlide.querySelector('.slide-left'), { yPercent: -30, duration: 1.2, ease: "power2.inOut" }, 0);
+    tl.to(currentSlide.querySelector('.slide-right'), { yPercent: -30, duration: 1.2, ease: "power2.inOut" }, 0);
     
     tl.to(currentSlide.querySelector('.category'), { y: -30, opacity: 0, duration: 0.8, ease: "power2.inOut" }, 0);
     tl.to(currentSlide.querySelector('h2'), { y: -50, opacity: 0, duration: 0.8, ease: "power2.inOut" }, 0);
     tl.to(currentSlide.querySelector('.slide-desc'), { y: -70, opacity: 0, duration: 0.8, ease: "power2.inOut" }, 0);
     tl.to(currentSlide.querySelector('.btn-learn'), { y: -90, opacity: 0, duration: 0.8, ease: "power2.inOut" }, 0);
 
-    // Next slide enters from bottom at full scale
-    tl.fromTo(nextSlide, { yPercent: 100, scale: 1, opacity: 1 }, { yPercent: 0, duration: 1.2, ease: "power2.inOut" }, 0);
+    // Next slide enters from bottom
+    tl.fromTo(nextSlide, { yPercent: 100 }, { yPercent: 0, duration: 1.2, ease: "power2.inOut" }, 0);
     tl.fromTo(nextSlide.querySelector('.category'), { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8, ease: "power2.out" }, 0.2);
     tl.fromTo(nextSlide.querySelector('h2'), { y: 60, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8, ease: "power2.out" }, 0.25);
     tl.fromTo(nextSlide.querySelector('.slide-desc'), { y: 80, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8, ease: "power2.out" }, 0.3);
@@ -65,8 +66,9 @@ const goToSlide = (index) => {
     tl.to(currentSlide.querySelector('.slide-desc'), { y: 80, opacity: 0, duration: 0.8, ease: "power2.inOut" }, 0);
     tl.to(currentSlide.querySelector('.btn-learn'), { y: 100, opacity: 0, duration: 0.8, ease: "power2.inOut" }, 0);
 
-    // Next slide returns from -15% back to 0%, scaling back up to normal
-    tl.to(nextSlide, { yPercent: 0, scale: 1, opacity: 1, duration: 1.2, ease: "power2.inOut" }, 0);
+    // Next slide returns from -30 to 0
+    tl.to(nextSlide.querySelector('.slide-left'), { yPercent: 0, duration: 1.2, ease: "power2.inOut" }, 0);
+    tl.to(nextSlide.querySelector('.slide-right'), { yPercent: 0, duration: 1.2, ease: "power2.inOut" }, 0);
     
     tl.to(nextSlide.querySelector('.category'), { y: 0, opacity: 1, duration: 0.8, ease: "power2.out" }, 0.2);
     tl.to(nextSlide.querySelector('h2'), { y: 0, opacity: 1, duration: 0.8, ease: "power2.out" }, 0.25);
