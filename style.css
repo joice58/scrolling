@@ -44,7 +44,10 @@ body {
   height: 100%;
   display: flex;
   overflow: hidden;
-  will-change: transform;
+  will-change: transform, scale, opacity;
+  
+  /* Soft 3D shadow casting upwards */
+  box-shadow: 0 -30px 60px rgba(0, 0, 0, 0.15), 0 -10px 20px rgba(0, 0, 0, 0.08);
 }
 
 .slide-left {
